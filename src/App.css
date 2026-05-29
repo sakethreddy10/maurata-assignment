@@ -1,38 +1,418 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
 .App {
+  min-height: 100vh;
+}
+
+/* Login Page Styles */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.login-btn:hover {
+  background: #5a6fd8;
+}
+
+.login-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Dashboard Layout */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background: #333;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-icon {
+  width: 32px;
+  height: 32px;
+  background: #667eea;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 250px;
+  background: #2c3e50;
+  color: white;
+  padding: 1rem 0;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-bottom: 1px solid #34495e;
+}
+
+.sidebar li:hover {
+  background: #34495e;
+}
+
+.sidebar li.active {
+  background: #667eea;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Home Section */
+.home-section {
+  position: relative;
+  min-height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.welcome-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.welcome-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.media-upload {
+  margin-top: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.media-upload input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Employee Section */
+.employee-section h2 {
+  margin-bottom: 2rem;
+  color: #333;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.add-employee-btn {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.add-employee-btn:hover {
+  background: #219a52;
+}
+
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.employee-table.transparent {
+  background: rgba(255,255,255,0.9);
+}
+
+.employee-table th,
+.employee-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.employee-table th {
+  background: #f8f9fa;
+  font-weight: bold;
+  color: #333;
+}
+
+.employee-table input,
+.employee-table select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.salary-high {
+  color: red;
+  font-weight: bold;
+}
+
+.distance-alert {
+  animation: blink 1s infinite;
+  color: red;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+.actions {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.edit-btn {
+  background: #3498db;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.delete-btn {
+  background: #e74c3c;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.copy-btn {
+  background: #f39c12;
+  color: white;
+}
+
+.save-btn {
+  background: #27ae60;
+  color: white;
+}
+
+.cancel-btn {
+  background: #95a5a6;
+  color: white;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.modal-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.modal-btn.yes {
+  background: #e74c3c;
+  color: white;
+}
+
+.modal-btn.no {
+  background: #95a5a6;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .sidebar {
+    width: 100%;
+    order: 2;
+  }
+  
+  .sidebar ul {
+    display: flex;
+    overflow-x: auto;
+  }
+  
+  .sidebar li {
+    white-space: nowrap;
+    min-width: 120px;
+    text-align: center;
+  }
+  
+  .content {
+    order: 1;
+    padding: 1rem;
+  }
+  
+  .header {
+    padding: 1rem;
+  }
+  
+  .welcome-overlay h1 {
+    font-size: 2rem;
+  }
+  
+  .employee-table {
+    font-size: 0.875rem;
+  }
+  
+  .employee-table th,
+  .employee-table td {
+    padding: 0.5rem;
   }
 }

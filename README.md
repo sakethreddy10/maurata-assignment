@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Murata Business Enterprises - React Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive React.js application featuring login functionality, employee management, and dashboard with sidebar navigation.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### 1. Login Page
+- Name validation (minimum 3 characters, alphabets and spaces only)
+- Mobile number validation (exactly 10 digits)
+- Automatic timestamp display
+- Form validation with error messages
 
-### `npm start`
+### 2. Dashboard Layout
+- Header with company logo and user info
+- Responsive sidebar navigation
+- Main content area
+- Mobile-responsive design
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 3. Home Section
+- Welcome message with user's name
+- Background media (image/video) support
+- Media upload functionality
+- Overlay text on background
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 4. Employee Management
+- Add new employees
+- Inline editing of employee records
+- Delete with confirmation popup
+- Copy records with confirmation
+- Auto-updating distance every 2 minutes
+- Conditional styling (salary > ₹50,000 in red, distance > 2km blinking)
+- Transparent table background when media is uploaded
 
-### `npm test`
+### 5. Custom Formatters
+- Salary: Converts to Indian currency format (₹50,000)
+- Distance: Converts meters to km when > 1000m (2.2 km)
+- Date: Formats timestamps (29 May 2026, 04:00 PM)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation & Setup
 
-### `npm run build`
+1. Navigate to the project directory:
+   ```bash
+   cd murata-assignment
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Login**: Enter name (min 3 chars) and 10-digit mobile number
+2. **Home**: View welcome message, upload background media
+3. **Employees**: Add, edit, delete, and copy employee records
+4. **Auto Features**: Distance updates every 2 minutes automatically
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Validations
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Login Form
+- Name: Required, minimum 3 characters, alphabets and spaces only
+- Mobile: Required, exactly 10 digits
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Employee Form
+- Name: Required, minimum 3 characters, alphabets and spaces only
+- Salary: Required, positive number
+- Gender: Required (Male/Female/Other)
 
-## Learn More
+## Responsive Design
+- Desktop: Full sidebar layout
+- Mobile: Collapsible sidebar, optimized spacing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies Used
+- React.js
+- React Router DOM
+- CSS3 (Flexbox, Grid)
+- Local Storage for user persistence
+- JavaScript ES6+
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Structure
+```
+src/
+├── components/
+│   ├── Login.js
+│   ├── Dashboard.js
+│   ├── Header.js
+│   ├── Sidebar.js
+│   ├── Home.js
+│   ├── Employees.js
+│   └── ConfirmModal.js
+├── utils/
+│   └── formatters.js
+├── App.js
+├── App.css
+└── index.js
+```
